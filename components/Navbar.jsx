@@ -22,7 +22,7 @@ const Navbar = () => {
             <li className={styles.listItem} style={{cursor:"pointer"}}>Homepage</li>
           </Link>
           <li className={styles.listItem}>Products</li>
-          <li className={styles.listItem}>Menu</li>
+          {/* <li className={styles.listItem}>Menu</li> */}
           <Image src="/img/logo_200x200.png" alt="" width="160px" height="160px" />
           <li className={styles.listItem}>Events</li>
           <li className={styles.listItem}>Blog</li>

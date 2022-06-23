@@ -1,5 +1,8 @@
 module.exports = {
-    reactStrictMode: true,
+    // reactStrictMode: true,
+    images: {
+        domains: ["res.cloudinary.com"],
+    },
     experimental: {
         forceSwcTransforms: true,
     },
