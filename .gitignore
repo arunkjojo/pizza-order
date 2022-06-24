@@ -1,3 +1,4 @@
-# Dependency directories
+# Dependency
+yarn.lock
 node_modules
 .next
