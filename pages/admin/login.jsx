@@ -26,6 +26,12 @@ const Login = () => {
             setError(true)
         }
     }
+
+    const handleKeypress = e => {
+      if (e.keyCode === 13) {
+        handleSignIn();
+      }
+    };
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
@@ -45,6 +51,7 @@ const Login = () => {
                 <button
                     onClick={handleSignIn}
                     className={styles.button}
+                    onKeyPress={handleKeypress}
                 >
                     Sign In
                 </button>
