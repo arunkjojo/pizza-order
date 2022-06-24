@@ -37,12 +37,14 @@ const Login = () => {
             <div className={styles.wrapper}>
                 <h1>Admin Dashboard</h1>
                 <input
+                    tabIndex={0}
                     type="text"
                     placeholder='Username'
                     className={styles.input}
                     onChange = {(e) => setUsername(e.target.value)}
                 />
                 <input
+                    tabIndex={0}
                     type="password"
                     placeholder='Password'
                     className={styles.input}
@@ -52,6 +54,7 @@ const Login = () => {
                     onClick={handleSignIn}
                     className={styles.button}
                     onKeyPress={handleKeypress}
+                    tabIndex={0}
                 >
                     Sign In
                 </button>
