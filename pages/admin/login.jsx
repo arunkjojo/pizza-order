@@ -46,7 +46,7 @@ const Login = () => {
                     Sign In
                 </button>
 
-                {error && <span className={styles.error}>Wrong Credentials!</span>}
+                {error && <span className={styles.error}>Wrong Credentials!{error.message}</span>}
             </div>
         </div>
     )
