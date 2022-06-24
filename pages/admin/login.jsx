@@ -9,12 +9,12 @@ const Login = () => {
     const [error, setError] = useState(false);
     const router = useRouter();
     const handleSignIn = async () => {
-        let domain = 'http://localhost:3000/';
+        let domain = 'http://localhost:3000/api/login';
         if(process.env.SITE_DOMIAN_URL !==''){
-            domain = process.env.SITE_DOMIAN_URL;
+            domain = process.env.SITE_DOMIAN_URL+'api/login';
         }
         try {
-            await axios.post(`${domain}api/login`,{
+            await axios.post(domain,{
                 username, 
                 password
             });
