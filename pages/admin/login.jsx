@@ -16,9 +16,8 @@ const Login = () => {
         if(process.env.SITE_DOMIAN_URL === undefined){
             domain = 'https://pizza-order-arunkjojo.vercel.app/api/login';
         }
-        console.log(process.env);
         try {
-            await axios.post(`api/login`,{
+            await axios.post(domain,{
                 username, 
                 password
             });
