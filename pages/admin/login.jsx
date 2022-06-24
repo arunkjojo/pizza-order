@@ -10,10 +10,13 @@ const Login = () => {
     const router = useRouter();
     const handleSignIn = async () => {
         let domain = 'http://localhost:3000/api/login';
-        if(process.env.SITE_DOMIAN_URL !==''){
+        if(process.env.SITE_DOMIAN_URL){
             domain = process.env.SITE_DOMIAN_URL+'api/login';
         }
-        console.log(process.env.SITE_DOMIAN_URL);
+        if(process.env.SITE_DOMIAN_URL === undefined){
+            domain = 'https://pizza-order-arunkjojo.vercel.app/api/login';
+        }
+        console.log(process.env);
         try {
             await axios.post(`api/login`,{
                 username, 
