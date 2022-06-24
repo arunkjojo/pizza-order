@@ -118,8 +118,11 @@ const Order = ({ order }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-
-  const res = await axios.get(`http://localhost:3000/api/orders/${params.id}`);
+  let domain = 'http://localhost:3000/';
+  if(process.env.SITE_DOMIAN_URL !==''){
+    domain = process.env.SITE_DOMIAN_URL;
+  }
+  const res = await axios.get(`${domain}api/orders/${params.id}`);
 
   return {
     props: {

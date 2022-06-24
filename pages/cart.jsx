@@ -22,8 +22,12 @@ const Cart = () => {
   const style = { layout: "vertical" };
 
   const createOrder = async data => {
+    let domain = 'http://localhost:3000/';
+    if(process.env.SITE_DOMIAN_URL !==''){
+      domain = process.env.SITE_DOMIAN_URL;
+    }
     try {
-      const res = await axios.post("http://localhost:3000/api/orders", data);
+      const res = await axios.post(`${domain}api/orders`, data);
       dispatch(reset());
       res.status === 201 && (
         router.push("/orders/" + res.data._id)

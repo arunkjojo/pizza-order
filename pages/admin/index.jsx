@@ -10,8 +10,12 @@ const Index = ({ products, orders }) => {
     const status = ["preparing", "On the way", "Delivered", "Completed"];
     const handleDeleteProduct = async id => {
         if(window.confirm('Are you sure, Delete this item?')){
+            let domain = 'http://localhost:3000/';
+            if(process.env.SITE_DOMIAN_URL !==''){
+                domain = process.env.SITE_DOMIAN_URL;
+            }
             try {
-                const res = await axios.delete("http://localhost:3000/api/products/"+id);
+                const res = await axios.delete(`${domain}api/products/`+id);
                 setPizzaList(
                     pizzaList.filter(pizza => pizza._id !== id)
                 )
@@ -25,8 +29,12 @@ const Index = ({ products, orders }) => {
         const currentStatus = orderItem.status;
 
         if(currentStatus < 3){
+            let domain = 'http://localhost:3000/';
+            if(process.env.SITE_DOMIAN_URL !==''){
+                domain = process.env.SITE_DOMIAN_URL;
+            }
             try {
-                const res = await axios.put("http://localhost:3000/api/orders/"+ id, {
+                const res = await axios.put(`${domain}api/orders/`+ id, {
                     status: currentStatus + 1
                 });
                 console.log([
@@ -47,8 +55,12 @@ const Index = ({ products, orders }) => {
         const currentStatus = orderItem.status;
 
         if(currentStatus > -1){
+            let domain = 'http://localhost:3000/';
+            if(process.env.SITE_DOMIAN_URL !==''){
+                domain = process.env.SITE_DOMIAN_URL;
+            }
             try {
-                const res = await axios.put("http://localhost:3000/api/orders/"+ id, {
+                const res = await axios.put(`${domain}api/orders/`+ id, {
                     status: currentStatus - 1
                 });
                 console.log([
@@ -66,8 +78,12 @@ const Index = ({ products, orders }) => {
     }
     const handleDeleteOrder = async (id) => {
         if(window.confirm('Are you sure, Delete this order?')){
+            let domain = 'http://localhost:3000/';
+            if(process.env.SITE_DOMIAN_URL !==''){
+                domain = process.env.SITE_DOMIAN_URL;
+            }
             try {
-                const res = await axios.delete("http://localhost:3000/api/orders/"+id);
+                const res = await axios.delete(`${domain}api/orders/`+id);
                 setOrderList(
                     orderList.filter(order => order._id !== id)
                 )
@@ -170,8 +186,13 @@ export const getServerSideProps = async (ctx) => {
         }
     }
 
-    const productRes = await axios.get(`http://localhost:3000/api/products/`);
-    const orderRes = await axios.get(`http://localhost:3000/api/orders/`);
+    let domain = 'http://localhost:3000/';
+    if(process.env.SITE_DOMIAN_URL !==''){
+        domain = process.env.SITE_DOMIAN_URL;
+    }
+
+    const productRes = await axios.get(`${domain}api/products/`);
+    const orderRes = await axios.get(`${domain}api/orders/`);
 
     return {
         props: {

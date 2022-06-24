@@ -40,7 +40,11 @@ const Add = ({ setClose }) => {
                 prices,
                 extraOptions
             }
-            await axios.post("http://localhost:3000/api/products", newProduct)
+            let domain = 'http://localhost:3000/';
+            if(process.env.SITE_DOMIAN_URL !==''){
+                domain = process.env.SITE_DOMIAN_URL;
+            }
+            await axios.post(`${domain}api/products`, newProduct)
             setClose(true);
         } catch (error) {
             console.log(error)
