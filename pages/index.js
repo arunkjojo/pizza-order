@@ -34,7 +34,7 @@ export const getServerSideProps = async (ctx) => {
     admin = true;
   }
   let domain = 'http://localhost:3000/';
-  if(process.env.SITE_DOMIAN_URL !==''){
+  if(process.env.SITE_DOMIAN_URL !==undefined){
     domain = process.env.SITE_DOMIAN_URL;
   }
 

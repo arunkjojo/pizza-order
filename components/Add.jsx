@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../styles/Add.module.css'
 import axios from 'axios';
-import { useRouter } from 'next/router';
 
 const Add = ({ setClose }) => {
     const [file, setFile] = useState(null);
@@ -41,8 +40,10 @@ const Add = ({ setClose }) => {
                 extraOptions
             }
             let domain = 'http://localhost:3000/';
-            if(process.env.SITE_DOMIAN_URL !==''){
+            if(process.env.SITE_DOMIAN_URL !==undefined){
                 domain = process.env.SITE_DOMIAN_URL;
+            }if(process.env.SITE_DOMIAN_URL ===undefined){
+                domain = 'https://pizza-order-arunkjojo.vercel.app/';
             }
             await axios.post(`${domain}api/products`, newProduct)
             setClose(true);

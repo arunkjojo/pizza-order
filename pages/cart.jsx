@@ -23,9 +23,11 @@ const Cart = () => {
 
   const createOrder = async data => {
     let domain = 'http://localhost:3000/';
-    if(process.env.SITE_DOMIAN_URL !==''){
+    if(process.env.SITE_DOMIAN_URL !==undefined){
       domain = process.env.SITE_DOMIAN_URL;
-    }
+    }if(process.env.SITE_DOMIAN_URL ===undefined){
+      domain = 'https://pizza-order-arunkjojo.vercel.app/';
+  }
     try {
       const res = await axios.post(`${domain}api/orders`, data);
       dispatch(reset());

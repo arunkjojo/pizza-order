@@ -9,12 +9,15 @@ const Login = () => {
     const [error, setError] = useState(false);
     const router = useRouter();
     const handleSignIn = async () => {
-        let domain = 'http://localhost:3000/';
-        if(process.env.SITE_DOMIAN_URL !==''){
-            domain = process.env.SITE_DOMIAN_URL;
+        let domain = 'http://localhost:3000/api/login';
+        if(process.env.SITE_DOMIAN_URL !== undefined){
+            domain = process.env.SITE_DOMIAN_URL+'api/login';
+        }
+        if(process.env.SITE_DOMIAN_URL === undefined){
+            domain = 'https://pizza-order-arunkjojo.vercel.app/api/login';
         }
         try {
-            await axios.post(`${domain}api/login`,{
+            await axios.post(domain,{
                 username, 
                 password
             });
@@ -46,7 +49,7 @@ const Login = () => {
                     Sign In
                 </button>
 
-                {error && <span className={styles.error}>Wrong Credentials!</span>}
+                {error && <span className={styles.error}>Wrong Credentials!{error.message}</span>}
             </div>
         </div>
     )

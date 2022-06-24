@@ -11,8 +11,10 @@ const Index = ({ products, orders }) => {
     const handleDeleteProduct = async id => {
         if(window.confirm('Are you sure, Delete this item?')){
             let domain = 'http://localhost:3000/';
-            if(process.env.SITE_DOMIAN_URL !==''){
+            if(process.env.SITE_DOMIAN_URL !==undefined){
                 domain = process.env.SITE_DOMIAN_URL;
+            }if(process.env.SITE_DOMIAN_URL ===undefined){
+                domain = 'https://pizza-order-arunkjojo.vercel.app/';
             }
             try {
                 const res = await axios.delete(`${domain}api/products/`+id);
@@ -30,8 +32,10 @@ const Index = ({ products, orders }) => {
 
         if(currentStatus < 3){
             let domain = 'http://localhost:3000/';
-            if(process.env.SITE_DOMIAN_URL !==''){
+            if(process.env.SITE_DOMIAN_URL !==undefined){
                 domain = process.env.SITE_DOMIAN_URL;
+            }if(process.env.SITE_DOMIAN_URL ===undefined){
+                domain = 'https://pizza-order-arunkjojo.vercel.app/';
             }
             try {
                 const res = await axios.put(`${domain}api/orders/`+ id, {
@@ -56,8 +60,10 @@ const Index = ({ products, orders }) => {
 
         if(currentStatus > -1){
             let domain = 'http://localhost:3000/';
-            if(process.env.SITE_DOMIAN_URL !==''){
+            if(process.env.SITE_DOMIAN_URL !==undefined){
                 domain = process.env.SITE_DOMIAN_URL;
+            }if(process.env.SITE_DOMIAN_URL ===undefined){
+                domain = 'https://pizza-order-arunkjojo.vercel.app/';
             }
             try {
                 const res = await axios.put(`${domain}api/orders/`+ id, {
@@ -81,6 +87,8 @@ const Index = ({ products, orders }) => {
             let domain = 'http://localhost:3000/';
             if(process.env.SITE_DOMIAN_URL !==''){
                 domain = process.env.SITE_DOMIAN_URL;
+            }if(process.env.SITE_DOMIAN_URL ===undefined){
+                domain = 'https://pizza-order-arunkjojo.vercel.app/';
             }
             try {
                 const res = await axios.delete(`${domain}api/orders/`+id);
@@ -187,7 +195,7 @@ export const getServerSideProps = async (ctx) => {
     }
 
     let domain = 'http://localhost:3000/';
-    if(process.env.SITE_DOMIAN_URL !==''){
+    if(process.env.SITE_DOMIAN_URL !== undefined){
         domain = process.env.SITE_DOMIAN_URL;
     }
 
