@@ -14,7 +14,7 @@ const Login = () => {
             domain = process.env.SITE_DOMIAN_URL;
         }
         try {
-            await axios.post(`${domaim}api/login`,{
+            await axios.post(`${domain}api/login`,{
                 username, 
                 password
             });
