@@ -16,18 +16,18 @@ const Footer = () => {
         <div className={styles.card}>
           <h1 className={styles.title}>FIND OUR RESTAURANTS</h1>
           <p className={styles.text}>
-            0123 A. Don Road #303.
-            <br /> NewYork, 85022
+            Thalapadi, Town Road.
+            <br /> Kasaragod, Kerala
             <br /> (123) 456-7890
           </p>
           <p className={styles.text}>
-            5001 K. Laquie Rd #204.
-            <br /> NewYork, 85022
+            Manjeshwar. Railway Road.
+            <br /> Kasaragod, Kerala
             <br /> (123) 456-7890
           </p>
           <p className={styles.text}>
-            1614 E. Erwin St #104.
-            <br /> NewYork, 85022
+            N.Paravoor. C MAdavan Road.
+            <br /> Ernakulam, Kerala
             <br /> (123) 456-7890
           </p>
         </div>
@@ -39,7 +39,7 @@ const Footer = () => {
           </p>
           <p className={styles.text}>
             SATURDAY - SUNDAY
-            <br /> 11:00 – 22:00
+            <br /> 12:00 – 22:00
           </p>
         </div>
       </div>
